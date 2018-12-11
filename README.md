@@ -29,5 +29,3 @@ Fork this repository, and then clone it by running the following command:
 
 Kva
 louvreaux
-
-Developed without any help from that French guy Lovro!
