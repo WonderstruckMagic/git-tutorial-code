@@ -29,6 +29,28 @@ class FactorialCommand(LustObject):
       result *= i
     return result
 
+
+class SquareCommand(LustObject):
+  def handle(self, arguments):
+    try: argument = int(arguments[0])
+    except (ValueError, IndexError):
+      print("fact: could not read integer argument.")
+      return
+
+    if argument < 0:
+      print("fact: argument has to be non-negative!")
+      return
+
+    print(self.__calculate_square(argument))
+
+  def print_help(self):
+    print(" fact <integer>")
+    print("   Calculates the factorial of <integer>.")
+
+  def __calculate_square(self, argument):
+    # Hmmm...
+    return argument*argument
+
 class QuitCommand(LustObject):
   def handle(self, arguments = None):
     print("Bye!")
@@ -58,6 +80,7 @@ commands = { }
 
 commands["fact"] = FactorialCommand()
 commands["quit"] = QuitCommand()
+commands["square"] = SquareCommand()
 # help command needs a reference to the parent dictionary in order to call each
 # command's print_help() function
 commands["help"] = HelpCommand(commands)
